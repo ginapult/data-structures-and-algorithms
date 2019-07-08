@@ -1,0 +1,82 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@ginapult 
+Code  Pull requests 0  Projects 0  Wiki  Security  Pulse
+seattle-301d49/configs/.eslintrc.json
+@JacobKnaack JacobKnaack adding prework files, intialized using 301d48
+000c228 6 days ago
+54 lines (54 sloc)  876 Bytes
+    
+{
+  "globals": {
+    "Handlebars": true,
+    "$": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "no-template-curly-in-string": "error",
+    "no-console": "off",
+    "no-undefined": "off",
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      "warn",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "no-multi-spaces": [
+      "warn",
+      {
+        "exceptions": {
+          "VariableDeclarator": true
+        }
+      }
+    ],
+    "no-trailing-spaces": "warn",
+    "new-cap": "warn",
+    "no-redeclare": [
+      "error",
+      {
+        "builtinGlobals": true
+      }
+    ],
+    "eol-last": "error"
+  }
+}
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
