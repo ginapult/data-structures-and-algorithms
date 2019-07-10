@@ -73,12 +73,6 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  const removeOne = (num, arr) => {
-    if (num %3 === 2) {
-      return arr.pop(num);
-    }
-  };
-  
   arr.forEach((value, idx) => {
     removeOne(arr[i], arr);
   });
