@@ -73,14 +73,8 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  const removeOne = (num, arr) => {
-    if (num %3 === 2) {
-      return arr.pop(num);
-    }
-  };
-  
-  arr.forEach((value, idx) => {
-    removeOne(arr[i], arr);
+  arr.forEach((value) => {
+    callback(value, arr);
   });
   return arr;
 };
@@ -96,7 +90,10 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+  arr.forEach((element, idx, arr) => {
+    removeOne(element, arr);
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,7 +114,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let newArr = [];
+  availableItems.forEach( element => {
+    if (element.available === true) {
+      newArr.push(element.name);
+    }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +138,22 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let outputArr = [];
+  arr.forEach(num => {
+    if (num % 3 === 0 && num % 5 === 0) {
+      outputArr.push('Fizz Buzz');
+    }
+    else if (num % 5 === 0) {
+      outputArr.push('Buzz');
+    }
+    else if (num % 3 === 0) {
+      outputArr.push('Fizz');
+    }
+    else {
+      outputArr.push(num);
+    }
+  });
+  return outputArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
