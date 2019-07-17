@@ -52,10 +52,11 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  arr.sort( (a,b) => {
-    return a.toLowerCase().localeCompare(b.toLowerCase());
-  })
-  return arr;
+  return arr.sort( (a,b) => a.toUpperCase() > b.toUpperCase())
+  // arr.sort( (a,b) => {
+    // return a.toLowerCase().localeCompare(b.toLowerCase());
+  // })
+  // return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,11 +88,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // arr.sort( (a,b) => {
-  //   return a.length - b.length;
-  // })
-  // return arr;
-};
+  return arr.sort( (a,b) => a.toString().length - b.toString().length)};
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -112,8 +109,7 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
-};
+  return arr.sort((a,b) => a.lastName > b.lastName)};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -126,9 +122,27 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  arr.sort( (a,b) => {
+    if (a.lastName < b.lastName) {
+      return -1;
+    } if (a.lastName > b.lastName) {
+      return 1;
+    } if (a.firstName < b.firstName) {
+      return -1;
+    } if (a.firstName > b.firstName) {
+      return 1;
+    }
+    return a.age - b.age;
+  })
+  return arr;
 };
 
+  // return arr.sort( (a,b) => {
+  //   if (a.lastName === b.lastName && a.firstName === b.firstName) { a.age > b.age}
+  //   else if (a.lastName === b.lastName) { a.firstName > b.firstName}
+  //   else a.lastName > b.lastName;
+  // });
+// };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
@@ -152,7 +166,9 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  arr.sort( (a,b) => {
+    if 
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
