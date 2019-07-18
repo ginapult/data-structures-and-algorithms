@@ -137,12 +137,7 @@ const sortPeopleBetter = (arr) => {
   return arr;
 };
 
-  // return arr.sort( (a,b) => {
-  //   if (a.lastName === b.lastName && a.firstName === b.firstName) { a.age > b.age}
-  //   else if (a.lastName === b.lastName) { a.firstName > b.firstName}
-  //   else a.lastName > b.lastName;
-  // });
-// };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
@@ -166,9 +161,27 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  arr.sort( (a,b) => {
-    if 
-  })
+  const dayValues = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+  }
+
+  return arr.sort( (a,b) => {  //(a,b) = "passing a comparison function" - one value and then next value
+    if (dayValues[a.dayOfWeek] > dayValues[b.dayOfWeek]) {
+      return 1;
+    } else if (dayValues[a.dayOfWeek] < dayValues[b.dayOfWeek]) {
+      return -1;
+    } else {
+      if ((parseInt(a.end) - parseInt(a.start)) < (parseInt(b.end) - parseInt(b.start))) {
+        return -1;
+      } else if ((parseInt(a.end) - parseInt(a.start)) > (parseInt(b.end) - parseInt(b.start)))
+      return 1;
+    }
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -182,7 +195,27 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  const dayValues = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+  }
+  
+  return arr.sort( (a,b) => {  //(a,b) = "passing a comparison function" - one value and then next value
+  if (dayValues[a.dayOfWeek] > dayValues[b.dayOfWeek]) {
+    return 1;
+  } else if (dayValues[a.dayOfWeek] < dayValues[b.dayOfWeek]) {
+    return -1;
+  } else {
+    if ((parseInt(a.end) - parseInt(a.start)) < (parseInt(b.end) - parseInt(b.start))) {
+      return -1;
+    } else if ((parseInt(a.end) - parseInt(a.start)) > (parseInt(b.end) - parseInt(b.start)))
+    return 1;
+  }
+  return 0;
+});
 };
 
 /* ------------------------------------------------------------------------------------------------
