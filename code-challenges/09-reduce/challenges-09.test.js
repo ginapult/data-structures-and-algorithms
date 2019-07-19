@@ -1,5 +1,7 @@
 'use strict';
 
+import { objectExpression } from "@babel/types";
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -134,7 +136,12 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, value) => {
+    if (Object.keys(value).includes('children')) {
+      acc += value.children.length;
+      return acc;
+    } else return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
