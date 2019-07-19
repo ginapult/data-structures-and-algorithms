@@ -62,10 +62,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  const regex = /\b(oct)/gi;
-  if (input.test(regex)) 
-  {return true}
-  else {return false};
+  const regex = /\b(oct)?(ber)/gi;
+  // return input.match
 };
 
 /* ------------------------------------------------------------------------------------------------
