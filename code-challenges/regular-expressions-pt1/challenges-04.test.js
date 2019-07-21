@@ -62,8 +62,7 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  const regex = /\b(oct)?(ber)/gi;
-  // return input.match
+  return input.toString().match(/^[Oo]ct(ober)?$/);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,11 +76,12 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // let regex = /\w+|[[:punct:]]( );
-  // const arr = [];
-  // if(str.match(regex)) {
-  //   arr.push(str.match(regex));
-  // }
+  //find all words that contain a space immediately at end
+  let regex = /(\w\s)/g
+  //return array of all words, still with space at end
+  if (str.match(regex)) {
+    return str.match(regex)
+  } else {return[]}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,7 +97,10 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  return str.replace(/a|e|i|o|u/, '_');
+  let regex = /a|e|i|o|u/g
+  if (str.match(regex)) {
+    return str.replace(regex, '_');
+  } else {return[]}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,7 +116,10 @@ Hint: All of these words end with the letters "ells".
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
 const findShells = (str) => {
-  // Solution code here...
+  let regex = /\b\w*(ells)\w*\b/g 
+  if (str.match(regex)) {
+    return str.match(regex)
+  } else {return[]}
 };
 
 /* ------------------------------------------------------------------------------------------------
