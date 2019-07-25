@@ -10,6 +10,10 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  let firstLetters = [];
+  arr.forEach( str =>
+    firstLetters.push(str.charAt(0)));
+  return firstLetters;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,6 +26,14 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  let happyArr = [];
+  let happy = ':)';
+  arr.forEach( str => {
+    if (str.includes(happy)) {
+      happyArr.push(str);
+    };
+  })
+  return happyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,9 +46,16 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  // let newPhoneNumberArr = [];
+  // arr.forEach( str => {
+  //   str.replace(/(/g, "");
+  // })
+
+
+  // return newPhoneNumberArr;
 };
 
-/* ------------------------------------------------------------------------------------------------
+/* 
 CHALLENGE 4
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
@@ -46,6 +65,7 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  // return str with only odd-index onlyOdd index Chars;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,6 +76,11 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  // arr.forEach ( str => {
+  //   if (str.includes(':)') {
+  //     return true;
+  //   }
+  // })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,6 +91,15 @@ Write a function named findAnything that takes in an array of strings, along wit
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  let foundArr = [];
+
+  arr.forEach ( str => {
+    if (str.includes(target)) {
+      foundArr.push(str);
+    }
+  })
+
+  return foundArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +110,11 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  // arr.forEach (str => {
+  //   if (str.includes(target)) {
+  //     return true;
+  //   }
+  // })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,6 +131,11 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  arr.forEach(str => {
+    if (str.includes('Brook')) {
+      arr.splice
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +163,11 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   // Solution code here...
+  return daysOfWeek.map(day => {//defined anon callback function
+    return arr.filter((eventString) => {
+      return eventString.includes(day);
+    })
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
