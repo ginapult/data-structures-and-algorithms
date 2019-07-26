@@ -46,13 +46,9 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
-  // let newPhoneNumberArr = [];
-  // arr.forEach( str => {
-  //   str.replace(/(/g, "");
-  // })
-
-
-  // return newPhoneNumberArr;
+  return arr.map( str => {
+    return str.replace(/[\(\)\-\s]/g, ""); //array.map always needs to return something, filter, reduce, etc.
+  })
 };
 
 /* 
@@ -65,7 +61,14 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
-  // return str with only odd-index onlyOdd index Chars;
+  let oddCharsStr = '';
+
+  for (let i=0; i < str.length; i++) {
+    if (i % 2 > 0) {
+      oddCharsStr = oddCharsStr + str[i]; //another way to write this is oddCharStr += str[i]
+    }
+  }
+  return oddCharsStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,11 +79,12 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
-  // arr.forEach ( str => {
-  //   if (str.includes(':)') {
-  //     return true;
-  //   }
-  // })
+  for (let i=0; i < arr.length; i++) {
+    if (!arr[i].includes(':)')) {
+      return false;
+    }
+  }
+  return true;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,6 +106,8 @@ const findAnything = (arr, target) => {
   return foundArr;
 };
 
+//try doing .map & .filter on this one
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
 
@@ -110,13 +116,14 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
-  // arr.forEach (str => {
-  //   if (str.includes(target)) {
-  //     return true;
-  //   }
-  // })
+  for (let i=0; i < arr.length; i++) {
+    if (!arr[i].includes(target)) {
+      return false;
+    }
+  }
+  return true;
 };
-
+  
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
 
@@ -131,10 +138,10 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
-  arr.forEach(str => {
-    if (str.includes('Brook')) {
-      arr.splice
-    }
+  return arr.map( course => {
+    return course.filter(student => {
+      return !(student.includes('Brook'))
+    })
   })
 };
 
@@ -180,6 +187,9 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 
 const characterByIndex = (arr) => {
   // Solution code here...
+  return arr.map((str, index) => {
+    return str.charAt(index);
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
