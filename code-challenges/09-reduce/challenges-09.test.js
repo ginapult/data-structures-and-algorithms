@@ -10,6 +10,10 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  return arr.reduce( (acc, val, idx) => {//idx is optional, others two mandatory
+    acc++; //could do acc = acc + 1
+    return acc;
+  },0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,6 +74,10 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
+  return arr.reduce ( (acc, val, idx) => {
+    acc.push( val.name );
+    return acc;
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,6 +90,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  let arr = str.split('');
+
+  return arr.reduce ( (acc, val, idx) => {
+    acc.unshift(val);
+    return acc;
+  }, []).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,6 +149,14 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce( (acc, val, idx) => {
+    if (val.children) {
+      acc = acc + val.children.length; // also could do acc+= val.children.length
+      return acc;
+    } else {
+      return acc; //else is needed to return acc
+    }
+  },0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -147,7 +169,13 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
-};
+  let calcCountAndSum = arr.reduce( (acc, val, idx) => {
+    acc.sum = acc.sum + val;
+    acc.count++; 
+    return acc; //don't forget to return acc
+  },{ count: 0, sum: 0 })
+return calcCountAndSum.sum / calcCountAndSum.count;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
