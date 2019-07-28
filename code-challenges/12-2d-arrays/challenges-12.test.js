@@ -111,6 +111,12 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  if (board[row][col] === '#') {
+    return 'hit'
+  } 
+  else {
+    return 'miss'
+  };
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,6 +129,14 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+let product = 1;
+
+numbers.forEach( arr => {
+  arr.forEach (num => {
+    product = num * product
+  })
+})
+return product;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,6 +157,16 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  let count = 0;
+  let sum = 0;
+
+  weather.forEach ( arr => {
+    arr.forEach ( num => {
+      sum = num + sum
+      count ++;
+    })
+  })
+  return sum/count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +188,26 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
-};
+  
+  let lowestAvgTemp = 0;
+
+  weather.forEach( arr => {
+    let count = 0;
+    let sum = 0;
+    arr.forEach( temp => {
+      sum = temp + sum;
+      count++;
+    })
+    let avgTemp = Math.floor(sum/count);
+    if (lowestAvgTemp === 0) {
+      lowestAvgTemp = avgTemp;
+    }
+    else if (avgTemp < lowestAvgTemp) {
+      lowestAvgTemp = avgTemp;
+    }
+  })
+  return lowestAvgTemp;
+ };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -180,7 +223,50 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+
+  let splitOnN = str.split('\n');
+
+  let splitOnComma = splitOnN.map(arr => {
+    return arr.split(',')
+  })
+
+  let newArr = [];
+
+  splitOnComma.forEach( arr => {
+    let sum = 0;
+    arr.forEach( num => {
+      sum = sum + parseInt(num);
+    })
+    newArr.push(sum);
+  })
+  return newArr;
 };
+
+// ALTERNATIVE WAY
+
+// const excel = (str) => {
+//   // Solution code here...
+
+//   //split on \n
+//   let splitOnN= str.split('\n')
+
+//   //split on ,
+//   let splitOnComma= splitOnN.map(arr=>{
+//     return arr.split(',')
+//   })
+//   //new array to be returned containing all sums
+//   let newArr=[];
+
+//   //loop through
+//   for(let i = 0; i<splitOnComma.length; i++){
+//     let sum = 0;
+//     for(let j = 0; j<splitOnComma[i].length; j++){
+//       sum += parseInt(splitOnComma[i][j]);
+//     }
+//     newArr.push(sum)
+//   }
+//   return newArr;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
