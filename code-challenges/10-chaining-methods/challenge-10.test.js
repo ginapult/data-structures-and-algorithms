@@ -13,6 +13,16 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  return input.reduce( (acc, val) =>
+    acc.concat(val),[]).reduce ((acc, val) => {
+      if (val === target) {
+      acc++;
+      return acc;
+    } 
+    else {
+      return acc;
+    }
+  },0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,6 +37,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  return input.reduce( (acc, val) =>
+    acc.concat(val),[]).reduce ((acc, val) => {
+      acc = acc + val;
+      return acc;
+    },0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,6 +58,14 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map( arr => {
+    let newArr = arr.filter( value => {
+      return typeof value === 'number' && value % 5 ===0
+    })
+    return newArr.map( element => {
+      return Math.pow(2, element);
+    })
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,6 +132,14 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  let allNames = [];
+
+  data.forEach (obj => {
+    if(obj.gender === 'male' || obj.gender === 'female') {
+      allNames.push(obj.name)
+    }
+  })
+  return allNames.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
