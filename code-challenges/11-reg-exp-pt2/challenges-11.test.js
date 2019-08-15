@@ -1,7 +1,7 @@
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 1
+CHALLENGE 1 
 
 Write a function named validatePin that uses a regular expression pattern to validate a PIN.
 
