@@ -10,9 +10,9 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
-  // loop through array
-  // capitalize the first letter only
-  //return arr of str with first cap
+  return arr.map (value => {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,6 +88,20 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let massOfLuke = 0;
+  let newArr = [];
+
+  arr.forEach ( obj => {
+    if (obj.name === 'Luke Skywalker') {
+      massOfLuke = parseInt(obj.mass);
+    }
+  })
+  arr.forEach ( obj => {
+    if (parseInt(obj.mass) > massOfLuke) {
+      newArr.push(obj.name);
+    }
+  })
+  return newArr.join(' - ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -106,6 +120,9 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+ return arr.sort((a, b) => {
+   return a[property] > b[property];
+ });
 };
 
 /* ------------------------------------------------------------------------------------------------
